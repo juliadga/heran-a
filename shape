@@ -1,0 +1,87 @@
+from math import pi, sqrt
+
+class Shape:
+    def get_nome(self):
+        raise NotImplementedError("Este método deve ser implementado pelas subclasses")
+
+    def calcular_area(self):
+        raise NotImplementedError("Este método deve ser implementado pelas subclasses")
+
+    def calcular_perimetro(self):
+        raise NotImplementedError("Este método deve ser implementado pelas subclasses")
+
+class Retangulo(Shape):
+    def __init__(self, largura, altura):
+        self.largura = largura
+        self.altura = altura
+
+    def get_nome(self):
+        return "Retângulo"
+
+    def calcular_area(self):
+        return self.largura * self.altura
+
+    def calcular_perimetro(self):
+        return 2 * (self.largura + self.altura)
+
+class Circulo(Shape):
+    def __init__(self, raio):
+        self.raio = raio
+
+    def get_nome(self):
+        return "Círculo"
+
+    def calcular_area(self):
+        return pi * self.raio**2
+
+    def calcular_perimetro(self):
+        return 2 * pi * self.raio
+
+class Losango(Shape):
+    def __init__(self, diagonal_maior, diagonal_menor, lado):
+        self.diagonal_maior = diagonal_maior
+        self.diagonal_menor = diagonal_menor
+        self.lado = lado
+
+    def get_nome(self):
+        return "Losango"
+
+    def calcular_area(self):
+        return (self.diagonal_maior * self.diagonal_menor) / 2
+
+    def calcular_perimetro(self):
+        return 4 * self.lado
+
+class Hexagono(Shape):
+    def __init__(self, lado):
+        self.lado = lado
+
+    def get_nome(self):
+        return "Hexágono"
+
+    def calcular_area(self):
+        return (3 * sqrt(3) * self.lado**2) / 2
+
+    def calcular_perimetro(self):
+        return 6 * self.lado
+
+class Pentagono(Shape):
+    def __init__(self, lado):
+        self.lado = lado
+
+    def get_nome(self):
+        return "Pentágono"
+
+    def calcular_area(self):
+        return (sqrt(5 * (5 + 2 * sqrt(5))) * self.lado**2) / 4
+
+    def calcular_perimetro(self):
+        return 5 * self.lado
+        
+shapes = [retangulo, circulo, losango, hexagono, pentagono]
+
+for shape in shapes:
+    print(f"{shape.get_nome()}:")
+    print(f"Área: {shape.calcular_area():.2f}")
+    print(f"Perímetro: {shape.calcular_perimetro():.2f}")
+    print()
