@@ -1,0 +1,23 @@
++--------------------+
+|     Funcionario    |
++--------------------+
+| - nome: String     |
+| - valorHora: Float |
+| - horasTrabalhadas: Float |
++--------------------+
+| + calcularSalario(): Float |
++--------------------+
+           ^
+           |
++------------------+
+|    Lider         |
++------------------+
+| + calcularSalario(): Float |
++------------------+
+           ^
+           |
++------------------+
+|    Gerente       |
++------------------+
+| + calcularSalario(): Float |
++------------------+
