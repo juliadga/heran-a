@@ -1,0 +1,22 @@
+class Funcionario:
+    def __init__(self, nome, valor_hora, horas_trabalhadas):
+        self.nome = nome
+        self.valor_hora = valor_hora
+        self.horas_trabalhadas = horas_trabalhadas
+
+    def calcular_salario(self):
+        return self.valor_hora * self.horas_trabalhadas
+
+class Lider(Funcionario):
+    def calcular_salario(self):
+        salario_base = super().calcular_salario()
+        return salario_base * 1.02
+
+class Gerente(Funcionario):
+    def calcular_salario(self):
+        salario_base = super().calcular_salario()
+        return salario_base * 1.05
+
+print(f"Salário do Funcionário: {funcionario.calcular_salario():.2f}")
+print(f"Salário do Líder: {lider.calcular_salario():.2f}")
+print(f"Salário do Gerente: {gerente.calcular_salario():.2f}")
